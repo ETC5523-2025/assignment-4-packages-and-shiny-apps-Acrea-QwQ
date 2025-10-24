@@ -53,8 +53,6 @@ ui <- fluidPage(
   fluidRow(
     column(
       width = 12,
-      tabsetPanel(
-
 
         # Panel 1
         navset_card_pill(
@@ -90,7 +88,8 @@ a shift that appears to correspond with the trend observed in house prices.")
       )
     )
   )
-))
+)
+
 
 
 server <- function(input, output, session) {
