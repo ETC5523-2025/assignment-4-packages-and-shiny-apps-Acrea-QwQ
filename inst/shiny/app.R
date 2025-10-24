@@ -29,11 +29,9 @@ ui <- fluidPage(
     column(
     width = 6,
     selectInput(
-      "bar_style",
-      "Bar width:",
-      choices = c("Narrow" = 0.4, "Medium" = 0.7, "Wide" = 0.9),
-      selected = 0.7
-      )
+      "phase_mode", "Phase view:",
+      choices = c("Both", "Before only", "After only")
+    )
     )
   ),
 
@@ -53,6 +51,7 @@ ui <- fluidPage(
 
 server <- function(input, output, session) {
 
+# Line plot
   output$p1 <- renderPlot({
     df <- subset(housepr_income,
                  year >= input$yearRange[1] & year <= input$yearRange[2])
@@ -70,9 +69,20 @@ server <- function(input, output, session) {
       theme_minimal(base_size = 14)
   })
 
+# col
+
   output$p2 <- renderPlot({
-    ggplot(capital_gain, aes(x = year, y = value, fill = phase)) +
-      geom_col(width = as.numeric(input$bar_style)) +
+
+    # select select data based on phase_mode
+    data_to_plot <- switch(
+      input$phase_mode,
+      "Before only" = subset(capital_gain, phase == "Before 50% capital gains discount"),
+      "After only"  = subset(capital_gain, phase == "After 50% capital gains discount"),
+      "Both" = capital_gain
+    )
+
+    ggplot(data_to_plot, aes(x = year, y = value, fill = phase)) +
+      geom_col(width = 0.7) +
       scale_fill_manual(values = c(
         "Before 50% capital gains discount" = "#50BBCE",
         "After 50% capital gains discount" = "#CB5268"
