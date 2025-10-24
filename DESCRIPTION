@@ -1,14 +1,18 @@
 Package: GoldinGroundOz
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Exploring the Relationship Between Household Disposable Income, Detached House Prices, and Capital Gain Rate Changes in Australia
+Version: 1.0.0
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+    person("Xingyu", "Wang", , "xwan0510@student.monash.edu", role = c("aut", "cre"))
+Description: 
+    Simulates and analyzes the relationship between household disposable 
+    income, detached house prices, and average capital gain rate changes in 
+    Australia from the late 20th century to the early 21st century, providing 
+    reproducible examples for exploring long-term housing market dynamics.
+License: MIT
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.0
 Depends: 
     R (>= 3.5)
 LazyData: true
+
