@@ -7,14 +7,13 @@
 
 <!-- badges: end -->
 
-GoldinGroundOz is an educational R package that demonstrates the
+GoldinGroundOz is a small exploratory R package that demonstrates the
 long-term relationship between Australia’s detached house prices,
 household disposable income, and average capital gain rate changes. It
-provides two simulated datasets and examples that help explore how “gold
-lies beneath the ground” — the wealth effect reflected in Australia’s
-housing market.
-
-The goal of GoldinGroundOz is to …
+provides two simulated datasets and illustrative examples that explore
+one of the hidden forces behind Australia’s surging housing prices — the
+shifting patterns of capital gain rates, or how “gold lies beneath the
+ground.”
 
 ## Installation
 
