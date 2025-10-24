@@ -15,7 +15,7 @@ ui <- fluidPage(
   # First row: sliderInput
   fluidRow(
     column(
-      # left input
+            # left input
       width = 6, # make more space
       sliderInput(
         "yearRange", "Select Year Range For Line plot:",
@@ -25,19 +25,13 @@ ui <- fluidPage(
         step = 1, sep = ""
         )
       ),
-      # right input
-        column(
-          width = 6,
-          div(
-            id = "price_inputs",
-            numericInput(
-              "n_bins",
-              "Number of bins (20–30):",
-              value = 30,
-              min = 20, max = 30, step = 1
-          )
-        )
-      )
+            # right input
+    selectInput(
+      "bar_style",
+      "Bar width:",
+      choices = c("Narrow" = 0.4, "Medium" = 0.7, "Wide" = 0.9),
+      selected = 0.7
+    )
     ),
 
 
@@ -75,12 +69,7 @@ server <- function(input, output, session) {
 
   output$p2 <- renderPlot({
     ggplot(capital_gain, aes(x = year, y = value, fill = phase)) +
-      geom_histogram(
-        aes(y = ..count..),
-        bins = input$n_bins,
-        position = "identity",
-        alpha = 0.8
-      ) +
+      geom_col(width = as.numeric(input$bar_style)) +
       scale_fill_manual(values = c(
         "Before 50% capital gains discount" = "#50BBCE",
         "After 50% capital gains discount" = "#CB5268"
@@ -91,7 +80,7 @@ server <- function(input, output, session) {
       scale_y_continuous(labels = label_dollar()) +
       labs(
         title = "Average capital gain rate change",
-        subtitle = "Orange = before 50% capital gains discount",
+        subtitle = "Blue = before 50% capital gains discount",
         x = NULL, y = NULL
       ) +
       theme_minimal(base_size = 14) +
