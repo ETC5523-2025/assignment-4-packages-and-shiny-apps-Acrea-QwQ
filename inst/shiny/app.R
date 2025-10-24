@@ -18,29 +18,34 @@ ui <- fluidPage(
 
   # First row: sliderInput
   fluidRow(
+    class = "input-row1",
     style = "padding: 15px; margin-bottom: 15px;",
 
            # left input
     column(
-      class = "col-box",
       width = 6,
+
+      div(class = "col-box",
       sliderInput(
-        "yearRange", "Select Year Range For First Panel:",
+        "yearRange",
+        HTML("Select Year Range For <span style='color:#FFA733;'>First Panel:</span>"),
         min = min(housepr_income$year),
         max = max(housepr_income$year),
         value = c(min(housepr_income$year), max(housepr_income$year)),
         step = 1, sep = ""
         )
-      ),
+      )),
             # right input
     column(
-    class = "col-box",
-    width = 6,
+      width = 6,
+
+    div(class = "col-box",
     selectInput(
-      "phase_mode", "Select phase view For Second Panel:",
+      "phase_mode",
+      HTML("Select Phase View For <span style='color:#FF6FA8;'>Second Panel:</span>"),
       choices = c("Before only", "After only", "Both")
     )
-    )
+    ))
   ),
 
 

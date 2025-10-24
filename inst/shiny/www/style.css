@@ -9,6 +9,14 @@
   color: #777777;
 }
 
+/* 父容器：让两列等高 */
+.input-row1 {
+  display: flex;
+  gap: 15px;
+  align-items: stretch;
+}
+
+
 /* Backgroundcolor for Input */
 .col-box {
   background-color: #FFF8DC;
@@ -16,6 +24,12 @@
   padding: 15px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 150px;
+  min-height: 150px;
 }
 
 
