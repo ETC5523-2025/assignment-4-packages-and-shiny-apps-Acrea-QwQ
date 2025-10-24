@@ -10,7 +10,7 @@ capital_gain   <- get("capital_gain", envir = asNamespace("GoldinGroundOz"))
 capital_gain$year <- factor(capital_gain$year, levels = sort(unique(capital_gain$year)))
 
 ui <- fluidPage(
-  titlePanel("Australia: Housing Price and Income Explorer"),
+  titlePanel("The Hidden Culprit: What Drove Australia's House Prices and Incomes Apart?"),
 
   # First row: sliderInput
   fluidRow(
@@ -18,7 +18,7 @@ ui <- fluidPage(
     column(
       width = 6,
       sliderInput(
-        "yearRange", "Select Year Range For Line plot:",
+        "yearRange", "Select Year Range For First Panel:",
         min = min(housepr_income$year),
         max = max(housepr_income$year),
         value = c(min(housepr_income$year), max(housepr_income$year)),
@@ -29,8 +29,8 @@ ui <- fluidPage(
     column(
     width = 6,
     selectInput(
-      "phase_mode", "Phase view:",
-      choices = c("Both", "Before only", "After only")
+      "phase_mode", "Select phase view For Second Panel:",
+      choices = c("Before only", "After only", "Both")
     )
     )
   ),
@@ -41,8 +41,30 @@ ui <- fluidPage(
     column(
       width = 12,
       tabsetPanel(
-        tabPanel("Disposable Income vs House Prices", plotOutput("p1")),
-        tabPanel("Average Capital Gain Rate", plotOutput("p2"))
+        tabPanel("Disposable Income vs House Prices", plotOutput("p1"),
+                 br(),
+                 p(strong("Description:"),
+                   "The plot compares household disposable income and detached house prices over time.
+          The orange line represents disposable income, while the gold line shows house prices.
+          Both are indexed to 1989–90 = 100 to make their growth comparable."
+                 ),
+                 p(strong("How to interpret:"),
+                   "The orange line shows household disposable income, while the gold line represents detached house prices.
+  Before 2000, the two moved closely together, but after 2000 the gap widened — house prices rose sharply, whereas income growth remained modest."
+                 )
+        ),
+        tabPanel("Average Capital Gain Rate", plotOutput("p2"),
+                 br(),
+                 p(strong("Description:"),
+                   "The plot shows the average capital gain rate in two phases, illustrating how the 50% capital gains discount policy affected property returns.
+The blue bars correspond to the period before the discount was introduced, while the red bars represent the period after it."
+                 ),
+                 p(strong("How to interpret:"),
+                   "The blue bars represent the period before the discount,
+          and the pink bars represent the period after it.
+          Comparing their heights shows how the policy changed the average gains. Notice that around the year 2000, there is a clear turning point — average capital gains begin to rise sharply after this period,
+a shift that appears to correspond with the trend observed in house prices.")
+                 )
       )
     )
   )
@@ -66,7 +88,11 @@ server <- function(input, output, session) {
         colour = "Indicator",
         title = "Simulated Detached House Prices vs Household Disposable Income"
       ) +
-      theme_minimal(base_size = 14)
+      theme_minimal(base_size = 14)+
+      theme(
+        plot.title = element_text(face = "bold"),
+        legend.title = element_blank()
+      )
   })
 
 # col
@@ -92,7 +118,8 @@ server <- function(input, output, session) {
       ) +
       scale_y_continuous(labels = label_dollar()) +
       labs(
-        title = "Average capital gain rate change",
+        colour = "Indicator",
+        title = "Simulated average capital gain rate change",
         subtitle = "Blue = before 50% capital gains discount",
         x = NULL, y = NULL
       ) +
