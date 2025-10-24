@@ -1,0 +1,46 @@
+---
+title: "Test"
+author: "Xingyu Wang 35285397"
+format: 
+  html:
+    theme: cosmo
+    css: style.css
+editor: visual
+---
+画房价和收入的图
+```{r}
+
+library(ggplot2)
+
+ggplot(df, aes(x = year)) +
+  geom_line(aes(y = income, colour = "Disposable income"), size = 1.2) +
+  geom_line(aes(y = house_price, colour = "House prices"), size = 1.2) +
+  scale_colour_manual(values = c("Disposable income" = "pink", "House prices" = "gold")) +
+  labs(y = "Index (1989–90 = 100)", x = "Year",
+       colour = "Indicator",
+       title = "Simulated Detached House Prices vs Household Disposable Income") +
+  theme_minimal(base_size = 14)
+```
+
+
+
+
+## How did Australia’s housing market get so bad, and is it all negative gearing’s fault?
+
+This [Youtube](https://www.youtube.com/watch?v=iqUFERBJwoY) presentation was published in early 2024, when Australia was entering an election season and housing affordability concerns were rising.The publication of the article reflects the political and media importance of the issue.
+
+### Summary of the Topic
+
+The video explains what negative gearing is and further shows that Australia’s housing crisis is not solely caused by negative gearing; the removal of the capital gains tax is a more significant factor.
+
+### Sturcture
+
+The Lede (Hook and Preview, 00:00–01:03): The large gap in the graph draws viewers’ attention and introduces the core question: the worsening housing market may have causes beyond negative gearing.
+
+Background (01:03–03:48): Explains negative gearing and changes in the capital gains tax system, providing essential context for the discussion.
+
+Main Result (03:49–04:05): This single, vivid metaphor expresses the author’s point clearly, allowing viewers to understand the argument even without mastering technical terms.
+
+> When it comes to the garbage fire, that is Australia's housing market, negative gearing is kind of just the garbage, but that change to capital gains tax that was the lit match that set the dumpster a light.
+
+Summary (04:06–04:55): Concludes the video, and emphasizing the significance and impact: the current tax system encourages investment in real estate, creating a vicious cycle that affects not only ordinary homebuyers but ultimately the Australian economy.

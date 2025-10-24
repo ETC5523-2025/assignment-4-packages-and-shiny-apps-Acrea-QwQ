@@ -1,0 +1,5 @@
+[1,"==> quarto preview Xingyu_Wang_assignment_1.qmd --to html --no-watch-inputs --no-browse\n\n"]
+[1,"pandoc \n"]
+[1,"  to: html\n  output-file: Xingyu_Wang_assignment_1.html\n  standalone: true\n  section-divs: true\n  html-math-method: mathjax\n  wrap: none\n  default-image-extension: png\n  css:\n    - style.css\n  \nmetadata\n  document-css: false\n  link-citations: true\n  date-format: long\n  lang: en\n  title: ETC5523_assignment_1\n  author: Xingyu Wang 35285397\n  editor: visual\n  theme: cosmo\n  \n"]
+[1,"Output created: Xingyu_Wang_assignment_1.html\n\nWatching files for changes\n"]
+[1,"Browse at http://localhost:5189/\n"]
