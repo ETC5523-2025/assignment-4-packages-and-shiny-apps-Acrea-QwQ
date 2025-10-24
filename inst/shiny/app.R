@@ -1,6 +1,7 @@
 library(shiny)
 library(ggplot2)
 library(scales)
+library(bslib)
 
 # Read in data
 housepr_income <- get("housepr_income", envir = asNamespace("GoldinGroundOz"))
@@ -44,8 +45,11 @@ ui <- fluidPage(
     column(
       width = 12,
       tabsetPanel(
+
+
         # Panel 1
-        tabPanel("Disposable Income vs House Prices", plotOutput("p1"),
+        navset_card_pill(
+          nav_panel("Disposable Income vs House Prices", plotOutput("p1"),
                  br(),
                  div(class = "desc-box",
                  p(strong("Description:"),
@@ -60,7 +64,7 @@ ui <- fluidPage(
         ),
 
         #Panel 2
-        tabPanel("Average Capital Gain Rate", plotOutput("p2"),
+        nav_panel("Average Capital Gain Rate", plotOutput("p2"),
                  br(),
                  div(class = "desc-box",
                  p(strong("Description:"),
@@ -72,11 +76,12 @@ The blue bars correspond to the period before the discount was introduced, while
           and the pink bars represent the period after it.
           Comparing their heights shows how the policy changed the average gains. Notice that around the year 2000, there is a clear turning point — average capital gains begin to rise sharply after this period,
 a shift that appears to correspond with the trend observed in house prices.")
-                 ))
+                 )),
+        id = "tab"
       )
     )
   )
-)
+))
 
 
 server <- function(input, output, session) {
