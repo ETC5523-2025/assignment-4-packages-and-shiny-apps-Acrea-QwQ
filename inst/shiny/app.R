@@ -10,6 +10,9 @@ capital_gain   <- get("capital_gain", envir = asNamespace("GoldinGroundOz"))
 capital_gain$year <- factor(capital_gain$year, levels = sort(unique(capital_gain$year)))
 
 ui <- fluidPage(
+  # use css
+  includeCSS("www/style.css"),
+
   titlePanel("The Hidden Culprit: What Drove Australia's House Prices and Incomes Apart?"),
 
   # First row: sliderInput
@@ -41,8 +44,10 @@ ui <- fluidPage(
     column(
       width = 12,
       tabsetPanel(
+        # Panel 1
         tabPanel("Disposable Income vs House Prices", plotOutput("p1"),
                  br(),
+                 div(class = "desc-box",
                  p(strong("Description:"),
                    "The plot compares household disposable income and detached house prices over time.
           The orange line represents disposable income, while the gold line shows house prices.
@@ -51,10 +56,13 @@ ui <- fluidPage(
                  p(strong("How to interpret:"),
                    "The orange line shows household disposable income, while the gold line represents detached house prices.
   Before 2000, the two moved closely together, but after 2000 the gap widened — house prices rose sharply, whereas income growth remained modest."
-                 )
+                 ))
         ),
+
+        #Panel 2
         tabPanel("Average Capital Gain Rate", plotOutput("p2"),
                  br(),
+                 div(class = "desc-box",
                  p(strong("Description:"),
                    "The plot shows the average capital gain rate in two phases, illustrating how the 50% capital gains discount policy affected property returns.
 The blue bars correspond to the period before the discount was introduced, while the red bars represent the period after it."
@@ -64,7 +72,7 @@ The blue bars correspond to the period before the discount was introduced, while
           and the pink bars represent the period after it.
           Comparing their heights shows how the policy changed the average gains. Notice that around the year 2000, there is a clear turning point — average capital gains begin to rise sharply after this period,
 a shift that appears to correspond with the trend observed in house prices.")
-                 )
+                 ))
       )
     )
   )
