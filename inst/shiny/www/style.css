@@ -9,15 +9,8 @@
   color: #777777;
 }
 
-/* 父容器：让两列等高 */
-.input-row1 {
-  display: flex;
-  gap: 15px;
-  align-items: stretch;
-}
 
-
-/* Backgroundcolor for Input */
+/* Backgroundcolor for Input in ui */
 .col-box {
   background-color: #F0F7FF;
   border-radius: 10px;
@@ -33,7 +26,7 @@
 }
 
 
-/* Hover for Input */
+/* Hover for Input in ui */
 .col-box:hover {
   background-color: #E0F0FF;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
