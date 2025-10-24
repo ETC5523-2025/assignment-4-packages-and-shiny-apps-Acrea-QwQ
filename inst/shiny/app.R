@@ -14,9 +14,9 @@ ui <- fluidPage(
 
   # First row: sliderInput
   fluidRow(
+           # left input
     column(
-            # left input
-      width = 6, # make more space
+      width = 6,
       sliderInput(
         "yearRange", "Select Year Range For Line plot:",
         min = min(housepr_income$year),
@@ -26,13 +26,16 @@ ui <- fluidPage(
         )
       ),
             # right input
+    column(
+    width = 6,
     selectInput(
       "bar_style",
       "Bar width:",
       choices = c("Narrow" = 0.4, "Medium" = 0.7, "Wide" = 0.9),
       selected = 0.7
+      )
     )
-    ),
+  ),
 
 
   # Second row: plots
