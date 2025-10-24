@@ -12,20 +12,22 @@ capital_gain$year <- factor(capital_gain$year, levels = sort(unique(capital_gain
 ui <- fluidPage(
   titlePanel("Australia: Housing Price and Income Explorer"),
 
-  # First row: :sliderInput
+  # First row: sliderInput
   fluidRow(
     column(
-      width = 12, # make more space
+      # left input
+      width = 6, # make more space
       sliderInput(
         "yearRange", "Select Year Range For Line plot:",
         min = min(housepr_income$year),
         max = max(housepr_income$year),
         value = c(min(housepr_income$year), max(housepr_income$year)),
         step = 1, sep = ""
+        )
       ),
-      fluidRow(
+      # right input
         column(
-          width = 12,
+          width = 6,
           div(
             id = "price_inputs",
             numericInput(
@@ -33,12 +35,11 @@ ui <- fluidPage(
               "Number of bins (20–30):",
               value = 30,
               min = 20, max = 30, step = 1
-            )
           )
         )
       )
-    )
-  ),
+    ),
+
 
   # Second row: plots
   fluidRow(
