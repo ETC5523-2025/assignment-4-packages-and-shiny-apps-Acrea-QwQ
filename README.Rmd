@@ -1,0 +1,63 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# GoldinGroundOz
+
+<!-- badges: start --> <!-- badges: end -->
+GoldinGroundOz is an educational R package that demonstrates the long-term relationship between Australia's detached house prices, household disposable income, and average capital gain rate changes.
+It provides two simulated datasets and examples that help explore how “gold lies beneath the ground” — the wealth effect reflected in Australia's housing market.
+
+
+The goal of GoldinGroundOz is to ...
+
+## Installation
+
+You can install the development version of GoldinGroundOz from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("pak")
+pak::pak("ETC5523-2025/assignment-4-packages-and-shiny-apps-Acrea-QwQ")
+```
+
+## Example
+
+A simple example of exploring the included datasets:
+
+```{r example}
+library(GoldinGroundOz)
+
+# Load the datasets
+data("housepr_income")
+data("capital_gain")
+
+# Quick overview
+head(housepr_income)
+head(capital_gain)
+
+# Plot house prices vs disposable income
+plot(
+housepr_income$year, housepr_income$house_price,
+type = "l", col = "gold", lwd = 2,
+ylab = "Index (1989–90 = 100)", xlab = "Year"
+)
+lines(housepr_income$year, housepr_income$income, col = "pink", lwd = 2)
+legend("topleft", legend = c("House Prices", "Disposable Income"),
+col = c("gold", "pink"), lwd = 2)
+```
+
+# Development notes
+
+This package was developed as part of the ETC5523 Communicating With Data coursework at Monash University.
+It aims to showcase basic R package construction, documentation skills.
