@@ -18,5 +18,4 @@ Depends:
     R (>= 3.5)
 LazyData: true
 Imports:
-    ggplot2,
     shiny
