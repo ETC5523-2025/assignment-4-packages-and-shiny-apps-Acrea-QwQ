@@ -18,11 +18,11 @@ ui <- fluidPage(
 
   # First row: sliderInput
   fluidRow(
-    class = "input-row1",
-    style = "background-color: #FFF8DC; padding: 15px; transition: all 0.3s ease;
-    border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);",
+    style = "padding: 15px; margin-bottom: 15px;",
+
            # left input
     column(
+      class = "col-box",
       width = 6,
       sliderInput(
         "yearRange", "Select Year Range For First Panel:",
@@ -34,6 +34,7 @@ ui <- fluidPage(
       ),
             # right input
     column(
+    class = "col-box",
     width = 6,
     selectInput(
       "phase_mode", "Select phase view For Second Panel:",
