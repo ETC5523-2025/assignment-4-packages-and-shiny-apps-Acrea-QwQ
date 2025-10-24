@@ -28,7 +28,7 @@ ui <- fluidPage(
       div(class = "col-box",
       sliderInput(
         "yearRange",
-        HTML("Select Year Range For <span style='color:#FFA733;'>First Panel:</span>"),
+        HTML("Select Year Range <span style='color:#FFA733;'>(First Panel):</span>"),
         min = min(housepr_income$year),
         max = max(housepr_income$year),
         value = c(min(housepr_income$year), max(housepr_income$year)),
@@ -42,7 +42,7 @@ ui <- fluidPage(
     div(class = "col-box",
     selectInput(
       "phase_mode",
-      HTML("Select Phase View For <span style='color:#FF6FA8;'>Second Panel:</span>"),
+      HTML("Select Phase View <span style='color:#FF6FA8;'>(Second Panel):</span>"),
       choices = c("Before only", "After only", "Both")
     )
     ))
