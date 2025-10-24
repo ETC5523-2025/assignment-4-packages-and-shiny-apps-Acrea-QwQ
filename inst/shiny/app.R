@@ -18,6 +18,9 @@ ui <- fluidPage(
 
   # First row: sliderInput
   fluidRow(
+    class = "input-row1",
+    style = "background-color: #FFF8DC; padding: 15px; transition: all 0.3s ease;
+    border-radius: 12px; margin-bottom: 15px; box-shadow: 0 2px 6px rgba(0,0,0,0.1);",
            # left input
     column(
       width = 6,
