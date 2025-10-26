@@ -1,5 +1,5 @@
 ---
-title: "simulating-the-gold-in-the-ground"
+title: "GoldinGroundOz"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{simulating-the-gold-in-the-ground}
@@ -10,11 +10,14 @@ vignette: >
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.width = 8,
+  fig.height = 4,
+  out.width = "80%",
+  fig.align = "center"
 )
 
 library(ggplot2)
-
 ```
 
 ## Introduction
@@ -57,7 +60,6 @@ knitr::kable(
 
 ```
 
-
 -  capital_gain: representing average capital gain rate changes between 1986–2020,
 with a policy-phase split (“Before” vs. “After” the 50% capital gains discount).
 
@@ -94,7 +96,7 @@ head(capital_gain)
 
 ## Visualizing
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 #| echo: false
 ggplot(housepr_income, aes(x = year)) +
   geom_line(aes(y = house_price, color = "House Prices"), size = 1.2) +
