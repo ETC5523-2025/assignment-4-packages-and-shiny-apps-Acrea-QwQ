@@ -13,10 +13,12 @@ A data frame with 34 rows and 3 variables:
 }
 }
 \source{
-Simulated data generated within the GoldinGroundOz package.
+Simulated data inspired by real Australian financial trends — serious analysis not recommended.
+Patterns were designed to mimic real-world shapes, but all numbers are fully synthetic.
 }
 \usage{
-capital_gain
+data(capital_gain)
+head(capital_gain)
 }
 \description{
 A simulated dataset representing the trend of average capital gain rate changes
