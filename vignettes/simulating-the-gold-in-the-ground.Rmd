@@ -1,0 +1,125 @@
+---
+title: "simulating-the-gold-in-the-ground"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{simulating-the-gold-in-the-ground}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Introduction
+
+Welcome to the **GoldinGroundOz** package!
+This vignette walks through how the package was built and what it aims to demonstrate.
+
+Before we begin, an important reminder:
+
+💬 All data in this package are simulated.
+They were generated to **resemble the general patterns** of real-world Australian housing and income trends —
+but they are **not actual figures**, and no real economic inference should be drawn from them.
+
+## The Idea
+
+The story behind the name Gold in the Ground is simple —
+Australia’s housing market has long been a fascinating subject,
+with property prices often growing faster than household income.
+
+## Dataset and Variable
+
+To explore this idea visually, we created two small datasets:
+
+-  housepr_income: showing detached house prices and household disposable income
+over 1990–2023, both simulated to move in a realistic long-term pattern.
+
+```{r}
+knitr::kable(
+  data.frame(
+    Variable = c("year", "income", "house_price"),
+    Description = c(
+      "Calendar year (1990–2023). Each record represents a yearly observation.",
+      "Simulated household disposable income index. It increases gradually, reflecting moderate real income growth.",
+      "Simulated detached house price index. It rises faster after the 2000s to mimic Australia's property boom."
+    )
+  ),
+  caption = "Variables in the `housepr_income` dataset"
+)
+
+```
+
+
+-  capital_gain: representing average capital gain rate changes between 1986–2020,
+with a policy-phase split (“Before” vs. “After” the 50% capital gains discount).
+
+```{r}
+knitr::kable(
+  data.frame(
+    Variable = c("year", "phase", "value"),
+    Description = c(
+      'Financial year period formatted as "YYYY-YY" (e.g., "1999-00").',
+      'Policy phase: either "Before 50% capital gains discount" or "After 50% capital gains discount".',
+      "Simulated average capital gain rate (in basis points). Values rise gradually after the policy change."
+    )
+  ),
+  caption = "Variables in the `capital_gain` dataset"
+)
+
+```
+
+
+Again, both are **artificial**, designed only to mimic the shape of real-world trends.
+
+## Loading the Data
+
+```{r setup}
+library(GoldinGroundOz)
+data("housepr_income")
+data("capital_gain")
+
+head(housepr_income)
+head(capital_gain)
+
+```
+
+## Visualizing
+
+```{r}
+#| echo: false
+plot(
+housepr_income$year, housepr_income$house_price,
+type = "l", col = "gold", lwd = 2,
+ylab = "Index (1989–90 = 100)", xlab = "Year",
+main = "Simulated Detached House Prices vs Household Disposable Income"
+)
+lines(housepr_income$year, housepr_income$income, col = "#FF8C69", lwd = 2)
+legend("topleft",
+legend = c("House Prices", "Disposable Income"),
+col = c("gold", "#FF8C69"), lwd = 2, bty = "n")
+
+```
+
+What we see is purely a stylized representation —
+income grows steadily, while house prices accelerate more strongly after the 2000s.
+This matches the broad shape of historical data, without using any real numbers.
+
+## The Shiny App
+
+The package also includes a small Shiny app to make these ideas interactive.
+You can launch it directly with:
+
+```{r}
+#| eval: false
+run_shinyapp()
+```
+
+## Ending
+
+This package — and especially this vignette — serves as an educational example
+of how simulated data can be used to illustrate long-term economic concepts
+without using real or confidential data.
