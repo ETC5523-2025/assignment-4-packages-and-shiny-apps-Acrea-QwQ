@@ -12,6 +12,9 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+
+library(ggplot2)
+
 ```
 
 ## Introduction
@@ -21,7 +24,7 @@ This vignette walks through how the package was built and what it aims to demons
 
 Before we begin, an important reminder:
 
-💬 All data in this package are simulated.
+All data in this package are simulated.
 They were generated to **resemble the general patterns** of real-world Australian housing and income trends —
 but they are **not actual figures**, and no real economic inference should be drawn from them.
 
@@ -39,13 +42,14 @@ To explore this idea visually, we created two small datasets:
 over 1990–2023, both simulated to move in a realistic long-term pattern.
 
 ```{r}
+#| echo: false
 knitr::kable(
   data.frame(
     Variable = c("year", "income", "house_price"),
     Description = c(
-      "Calendar year (1990–2023). Each record represents a yearly observation.",
-      "Simulated household disposable income index. It increases gradually, reflecting moderate real income growth.",
-      "Simulated detached house price index. It rises faster after the 2000s to mimic Australia's property boom."
+      "Year variable (1990–2023)",
+      "Simulated household disposable income index, generated as 100 + (year - 1990) * 6 + ε, with ε ~ N(0, 6). Represents steady income growth with mild yearly variation.",
+      "Simulated detached house price index, generated as 100 * exp(0.06 * (year - 1990)) + η, with η ~ N(0, 30). Models exponential price increases and greater volatility after 2000."
     )
   ),
   caption = "Variables in the `housepr_income` dataset"
@@ -58,13 +62,14 @@ knitr::kable(
 with a policy-phase split (“Before” vs. “After” the 50% capital gains discount).
 
 ```{r}
+#| echo: false
 knitr::kable(
   data.frame(
     Variable = c("year", "phase", "value"),
     Description = c(
       'Financial year period formatted as "YYYY-YY" (e.g., "1999-00").',
       'Policy phase: either "Before 50% capital gains discount" or "After 50% capital gains discount".',
-      "Simulated average capital gain rate (in basis points). Values rise gradually after the policy change."
+      "Simulated average capital gain rate (basis points). For the “Before” phase, random values from Uniform(2500, 6000). For the “After” phase, increasing sequence from 7000 to 30000 with added Normal(0, 1200) noise. Negative values truncated to zero."
     )
   ),
   caption = "Variables in the `capital_gain` dataset"
@@ -91,17 +96,29 @@ head(capital_gain)
 
 ```{r}
 #| echo: false
-plot(
-housepr_income$year, housepr_income$house_price,
-type = "l", col = "gold", lwd = 2,
-ylab = "Index (1989–90 = 100)", xlab = "Year",
-main = "Simulated Detached House Prices vs Household Disposable Income"
-)
-lines(housepr_income$year, housepr_income$income, col = "#FF8C69", lwd = 2)
-legend("topleft",
-legend = c("House Prices", "Disposable Income"),
-col = c("gold", "#FF8C69"), lwd = 2, bty = "n")
-
+ggplot(housepr_income, aes(x = year)) +
+  geom_line(aes(y = house_price, color = "House Prices"), size = 1.2) +
+  geom_line(aes(y = income, color = "Disposable Income"), size = 1.2) +
+  scale_color_manual(
+    name = NULL,
+    values = c("House Prices" = "goldenrod", "Disposable Income" = "#FF8C69")
+  ) +
+  labs(
+    title = "Simulated Detached House Prices vs Household Disposable Income",
+    subtitle = "Australia, 1990–2023 (Simulated Data)",
+    x = "Year",
+    y = "Index (1989–90 = 100)",
+    caption = "Note: Data are fully simulated for illustrative purposes only."
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    legend.position = "top",
+    legend.text = element_text(size = 12),
+    plot.title = element_text(face = "bold", size = 16, hjust = 0.5),
+    plot.subtitle = element_text(size = 12, hjust = 0.5, color = "grey40"),
+    axis.text = element_text(color = "grey20"),
+    panel.grid.minor = element_blank()
+  )
 ```
 
 What we see is purely a stylized representation —
