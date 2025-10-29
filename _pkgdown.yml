@@ -3,9 +3,7 @@ url: https://Acrea-QwQ.github.io/GoldinGroundOz
 template:
   bslib:
     version: 5
-    mode: auto
-    bg: "#fff9e6"
-    fg: "#1f1f1f"
+    bootswatch: sketchy
     primary: "#c39b00"
     secondary: "#003366"
 
