@@ -1,5 +1,5 @@
 ---
-title: "GoldinGroundOz"
+title: "Simulating the Gold in the Ground"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{simulating-the-gold-in-the-ground}
@@ -96,7 +96,7 @@ head(capital_gain)
 
 ## Visualizing
 
-```{r message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, fig.alt = "Simulated relationship between house prices and household income over time"}
 #| echo: false
 ggplot(housepr_income, aes(x = year)) +
   geom_line(aes(y = house_price, color = "House Prices"), size = 1.2) +
