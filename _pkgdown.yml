@@ -1,0 +1,50 @@
+url: https://Acrea-QwQ.github.io/GoldinGroundOz
+
+template:
+  bslib:
+    version: 5
+    mode: auto
+    bg: "#fff9e6"
+    fg: "#1f1f1f"
+    primary: "#c39b00"
+    secondary: "#003366"
+
+reference:
+- title: All functions
+  contents:
+  - capital_gain
+  - GoldinGroundOz
+  - housepr_income
+  - run_shinyapp
+
+articles:
+- title: "Simulation & Analysis"
+  desc: >
+      Demonstration vignette showing how to simulate and visualise the long-term
+      relationship between house prices, income, and capital gain rates.
+  contents:
+      - simulating-the-gold-in-the-ground
+navbar:
+  structure:
+    left:
+    - intro
+    - reference
+    - articles
+    - tutorials
+    - news
+    right:
+    - search
+    - github
+  components:
+    github:
+      text: "GitHub"
+      href: https://github.com/Acrea-QwQ/GoldinGroundOz
+      icon: "fab fa-github"
+    tutorials:
+      text: "Shiny App"
+      href: articles/shiny-demo.html
+    lightswitch:
+      text: "Light / Dark"
+      href: "#"
+      icon: "fas fa-adjust"
+
