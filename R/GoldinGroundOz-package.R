@@ -1,4 +1,4 @@
-#' GoldinGroundOz: Exploring Australia's Simulated Housing Market Dynamics
+#' Exploring Australia's Simulated Housing Market Dynamics
 #'
 #' The GoldinGroundOz package demonstrates the long-term movements of
 #' Australia's detached house prices, household disposable income,

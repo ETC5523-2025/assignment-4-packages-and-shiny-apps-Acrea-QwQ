@@ -1,0 +1,13 @@
+
+/* css styles */
+
+h1, h2, h3 {
+  color: #FA8072 !important;
+}
+
+p {
+  text-align: left !important;
+  line-height: 1.6 !important;
+  margin: 0 auto 1.5em !important;
+  max-width: 700px !important;
+}

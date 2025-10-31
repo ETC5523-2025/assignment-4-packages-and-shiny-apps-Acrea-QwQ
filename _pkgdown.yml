@@ -3,46 +3,55 @@ url: https://Acrea-QwQ.github.io/GoldinGroundOz
 template:
   bslib:
     version: 5
-    bootswatch: sketchy
-    primary: "#c39b00"
-    secondary: "#003366"
+    bootswatch: minty
+    primary: "#FFC780"
+    secondary: "#102870"
+    theme_toggle: true
+  css: pkgdown/website.css
 
 reference:
-- title: All functions
+- title: Functions and datasets
   contents:
-  - capital_gain
-  - GoldinGroundOz
-  - housepr_income
+  - GoldinGroundOz-package
   - run_shinyapp
+  - capital_gain
+  - housepr_income
 
 articles:
-- title: "Simulation & Analysis"
+- title: "Simulation"
   desc: >
-      Demonstration vignette showing how to simulate and visualise the long-term
-      relationship between house prices, income, and capital gain rates.
+    Demonstrations showing how to simulate and analyse Australia's housing
+    market data, including house prices, incomes, and capital gain rates.
   contents:
-      - simulating-the-gold-in-the-ground
+    - simulating-the-gold-in-the-ground
+
+- title: "Shiny Demo"
+  desc: >
+    An overview of the interactive Shiny application included in the package.
+    This vignette explains its layout, controls, and how to launch it.
+  contents:
+    - shiny-demo
+
 navbar:
   structure:
     left:
-    - intro
     - reference
     - articles
-    - tutorials
-    - news
+    - shinyapp
     right:
     - search
     - github
+    - aboutme
   components:
     github:
       text: "GitHub"
-      href: https://github.com/Acrea-QwQ/GoldinGroundOz
+      href: https://github.com/Acrea-QwQ
       icon: "fab fa-github"
-    tutorials:
+    shinyapp:
       text: "Shiny App"
       href: articles/shiny-demo.html
-    lightswitch:
-      text: "Light / Dark"
-      href: "#"
-      icon: "fas fa-adjust"
+    aboutme:
+      text: "About"
+      href: https://etc5523-2025.github.io/assignment-3-creating-a-blog-Acrea-QwQ/about.html
+      icon: "fas fa-user-circle"
 

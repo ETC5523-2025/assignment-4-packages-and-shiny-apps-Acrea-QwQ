@@ -53,8 +53,3 @@ lines(housepr_income$year, housepr_income$income, col = "pink", lwd = 2)
 legend("topleft", legend = c("House Prices", "Disposable Income"),
 col = c("gold", "pink"), lwd = 2)
 ```
-
-# Development notes
-
-This package was developed as part of the ETC5523 Communicating With Data coursework at Monash University.
-It aims to showcase basic R package construction, documentation skills.

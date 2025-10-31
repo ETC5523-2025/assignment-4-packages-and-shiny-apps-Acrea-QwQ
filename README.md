@@ -66,9 +66,3 @@ col = c("gold", "pink"), lwd = 2)
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />
-
-# Development notes
-
-This package was developed as part of the ETC5523 Communicating With
-Data coursework at Monash University. It aims to showcase basic R
-package construction, documentation skills.
