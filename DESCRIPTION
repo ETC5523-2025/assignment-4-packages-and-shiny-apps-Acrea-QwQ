@@ -22,6 +22,7 @@ Imports:
     shiny
 Suggests: 
     knitr,
+    ggplot2,
     rmarkdown
 VignetteBuilder: knitr
 URL: https://Acrea-QwQ.github.io/GoldinGroundOz, https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-Acrea-QwQ/
