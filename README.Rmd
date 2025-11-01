@@ -17,12 +17,19 @@ knitr::opts_chunk$set(
 
 <!-- badges: start --> <!-- badges: end -->
 GoldinGroundOz is a small exploratory R package that demonstrates the long-term relationship between Australia's detached house prices, household disposable income, and average capital gain rate changes.
-It provides two simulated datasets and illustrative examples that explore one of the hidden forces behind Australia’s surging housing prices — the shifting patterns of capital gain rates, or how “gold lies beneath the ground.”
+It provides two simulated datasets and illustrative examples that explore one of the hidden forces behind Australia’s surging housing prices — the shifting patterns of capital gain rates, or how "gold lies beneath the ground".
+
+See the full documentation and Shiny app on the pkgdown website 👇  
+🔗 [GoldinGroundOz pkgdown site](https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-Acrea-QwQ/)
 
 ## Installation
 
-See the full documentation and Shiny app demo on the pkgdown website 👇  
-🔗 [GoldinGroundOz pkgdown site](https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-Acrea-QwQ/)
+You can install **GoldinGroundOz** from GitHub with:
+
+```{r}
+#| eval: false
+devtools::install_github("ETC5523-2025/assignment-4-packages-and-shiny-apps-Acrea-QwQ")
+```
 
 ## Example
 
