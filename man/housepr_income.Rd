@@ -17,11 +17,18 @@ Simulated data inspired by real Australian financial trends — serious analysis
 Patterns were designed to mimic real-world shapes, but all numbers are fully synthetic.
 }
 \usage{
-data(housepr_income)
-head(housepr_income)
+housepr_income
 }
 \description{
 A simulated dataset illustrating the respective time-series trends of household disposable income
 and detached house prices in Australia (1990–2023), allowing for visual comparison of their growth patterns.
+}
+\examples{
+# Load the dataset
+data(housepr_income)
+
+# Preview first few rows
+head(housepr_income)
+
 }
 \keyword{datasets}

@@ -17,11 +17,18 @@ Simulated data inspired by real Australian financial trends — serious analysis
 Patterns were designed to mimic real-world shapes, but all numbers are fully synthetic.
 }
 \usage{
-data(capital_gain)
-head(capital_gain)
+capital_gain
 }
 \description{
 A simulated dataset representing the trend of average capital gain rate changes
 in Australia between 1986 and 2020, separated by policy phase.
+}
+\examples{
+# Load the dataset
+data(capital_gain)
+
+# Preview first few rows
+head(capital_gain)
+
 }
 \keyword{datasets}

@@ -4,7 +4,7 @@
 \name{GoldinGroundOz}
 \alias{GoldinGroundOz-package}
 \alias{GoldinGroundOz}
-\title{GoldinGroundOz: Exploring Australia's Simulated Housing Market Dynamics}
+\title{Exploring Australia's Simulated Housing Market Dynamics}
 \description{
 The GoldinGroundOz package demonstrates the long-term movements of
 Australia's detached house prices, household disposable income,
@@ -24,6 +24,14 @@ The package includes an interactive Shiny app launched by \code{run_shinyapp()}
 for visual exploration of the simulated data.
 }
 
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://Acrea-QwQ.github.io/GoldinGroundOz}
+  \item \url{https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-Acrea-QwQ/}
+}
+
+}
 \author{
 \strong{Maintainer}: Xingyu Wang \email{xwan0510@student.monash.edu}
 

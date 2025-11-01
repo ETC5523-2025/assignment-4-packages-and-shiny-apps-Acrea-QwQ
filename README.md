@@ -17,13 +17,10 @@ ground.”
 
 ## Installation
 
-You can install the development version of GoldinGroundOz from
-[GitHub](https://github.com/) with:
-
-``` r
-# install.packages("pak")
-pak::pak("ETC5523-2025/assignment-4-packages-and-shiny-apps-Acrea-QwQ")
-```
+See the full documentation and Shiny app demo on the pkgdown website
+👇  
+🔗 [GoldinGroundOz pkgdown
+site](https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-Acrea-QwQ/)
 
 ## Example
 
