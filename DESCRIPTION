@@ -24,5 +24,4 @@ Suggests:
     knitr,
     rmarkdown
 VignetteBuilder: knitr
-URL: https://Acrea-QwQ.github.io/GoldinGroundOz
-
+URL: https://Acrea-QwQ.github.io/GoldinGroundOz, https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-Acrea-QwQ/
