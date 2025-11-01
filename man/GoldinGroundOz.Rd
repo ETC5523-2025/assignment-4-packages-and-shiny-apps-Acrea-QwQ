@@ -27,7 +27,6 @@ for visual exploration of the simulated data.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://Acrea-QwQ.github.io/GoldinGroundOz}
   \item \url{https://etc5523-2025.github.io/assignment-4-packages-and-shiny-apps-Acrea-QwQ/}
 }
 
