@@ -28,7 +28,7 @@ run_shinyapp()
 
 Once it’s running, you’ll see a page like this:
 
-<div align="center">![Overview of the Shiny App](../man/figures/shiny-app-looking.jpg){width=80%}</div>
+<div align="center">![Overview of the Shiny App](../man/figures/shiny-app-looking.JPG){width=80%}</div>
 
 — it’s packed with fun interactive features to help you explore the data. Go ahead and give it a try! 🎉
 
